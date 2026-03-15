@@ -72,7 +72,7 @@ export default function FAQPage() {
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
             <Image src="/logo.jpg" alt="Workify" width={28} height={28} style={{ borderRadius: 6 }} />
-            <span className="font-display" style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em", background: "linear-gradient(135deg, #4F7FFF, #A064FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Workify</span>
+            <span className="font-display" style={{ fontSize: 17, fontWeight: 800, letterSpacing: "-0.02em", color: "var(--text-primary)" }}>WORKIFY</span>
           </Link>
           <Link href="/" style={{ textDecoration: "none" }}>
             <button className="btn-secondary" style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, padding: "7px 14px" }}>

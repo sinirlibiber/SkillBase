@@ -4,19 +4,36 @@ import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { baseSepolia, base } from "wagmi/chains";
-import { coinbaseWallet } from "wagmi/connectors";
+import { coinbaseWallet, walletConnect, metaMask, injected } from "@wagmi/connectors";
 import { OnchainKitProvider } from "@coinbase/onchainkit";
 
 const queryClient = new QueryClient();
 
+const WC_PROJECT_ID = "1e439b095c492eb318a357edd78151ff";
+
 export const wagmiConfig = createConfig({
   chains: [baseSepolia, base],
   connectors: [
+    // Coinbase Wallet + Smart Wallet + Base App + Farcaster embedded wallet
     coinbaseWallet({
       appName: "Workify",
-      appLogoUrl: (process.env.NEXT_PUBLIC_URL || "") + "/logo.png",
-      preference: "smartWalletOnly",
+      appLogoUrl: (process.env.NEXT_PUBLIC_URL || "") + "/logo.jpg",
+      preference: "all", // "all" = smart wallet + EOA + Base App embedded
     }),
+    // WalletConnect — Farcaster Frame wallet, Rainbow, Trust, etc.
+    walletConnect({
+      projectId: WC_PROJECT_ID,
+      metadata: {
+        name: "Workify",
+        description: "Decentralized Freelance on Base",
+        url: process.env.NEXT_PUBLIC_URL || "https://workify.vercel.app",
+        icons: [(process.env.NEXT_PUBLIC_URL || "https://workify.vercel.app") + "/logo.jpg"],
+      },
+      showQrModal: true,
+    }),
+    // MetaMask & injected (browser extension wallets)
+    metaMask(),
+    injected(),
   ],
   transports: {
     [baseSepolia.id]: http(),
@@ -37,9 +54,12 @@ export function Providers({ children }: { children: ReactNode }) {
             appearance: {
               mode: "dark",
               name: "Workify",
-              logo: (process.env.NEXT_PUBLIC_URL || "") + "/logo.png",
+              logo: (process.env.NEXT_PUBLIC_URL || "") + "/logo.jpg",
             },
             paymaster: paymasterUrl || undefined,
+            wallet: {
+              display: "modal",
+            },
           }}
         >
           {children}
