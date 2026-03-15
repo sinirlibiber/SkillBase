@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { baseSepolia, base } from "wagmi/chains";
-import { coinbaseWallet, injected } from "wagmi/connectors";
+import { coinbaseWallet } from "wagmi/connectors";
 import { OnchainKitProvider } from "@coinbase/onchainkit";
 
 const queryClient = new QueryClient();
@@ -17,7 +17,6 @@ export const wagmiConfig = createConfig({
       appLogoUrl: (process.env.NEXT_PUBLIC_URL || "") + "/logo.png",
       preference: "smartWalletOnly",
     }),
-    injected(),
   ],
   transports: {
     [baseSepolia.id]: http(),

@@ -1,21 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Required for OnchainKit
   transpilePackages: ["@coinbase/onchainkit"],
-  
-  // Security headers
+
+  webpack: (config) => {
+    // Fix @metamask/sdk React Native dependency issue
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@react-native-async-storage/async-storage": false,
+    };
+    return config;
+  },
+
   async headers() {
     return [
       {
         source: "/:path*",
         headers: [
-          { key: "X-Frame-Options", value: "ALLOWALL" }, // Required for Mini Apps
+          { key: "X-Frame-Options", value: "ALLOWALL" },
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         ],
       },
       {
-        // CORS for farcaster.json
         source: "/.well-known/farcaster.json",
         headers: [
           { key: "Access-Control-Allow-Origin", value: "*" },

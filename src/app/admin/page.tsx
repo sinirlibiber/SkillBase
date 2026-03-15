@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { formatUnits } from "viem";
+import { ConnectWallet } from "@coinbase/onchainkit/wallet";
 import { Shield, AlertTriangle, CheckCircle, XCircle, Scale, DollarSign, ArrowLeft, FileText } from "lucide-react";
 import { CONTRACT_ADDRESS, SKILLSWAP_ABI, DISPUTE_OUTCOME } from "@/lib/contract";
 
