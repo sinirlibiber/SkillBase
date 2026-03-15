@@ -82,7 +82,7 @@ export default function FAQPage() {
 
         {FAQ_SECTIONS.map((section) => (
           <div key={section.title} style={{ marginBottom: 48 }}>
-            <h2 className="font-display" style={{ fontSize: 18, fontWeight: 800, color: "var(--accent)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.06em", fontSize: 12 }}>
+            <h2 className="font-display" style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.06em" }}>
               {section.title}
             </h2>
             <div className="card" style={{ padding: "4px 28px" }}>
