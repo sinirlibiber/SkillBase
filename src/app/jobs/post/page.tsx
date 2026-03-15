@@ -92,18 +92,21 @@ export default function PostJobPage() {
 
   const handlePost = () => {
     setStep("post");
+    // Default deadline: 30 days from now per milestone
+    const defaultDeadline = BigInt(Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60);
     postJob({
       address: CONTRACT_ADDRESS,
       abi: SKILLSWAP_ABI,
       functionName: "postJob",
-      args: [
+      args: [{
         title,
-        description, // In production, upload to IPFS first
+        descriptionHash: description,
         category,
-        milestones.map((m) => m.title),
-        milestones.map((m) => m.description),
-        milestones.map((m) => parseUnits(parseFloat(m.amount).toFixed(6), 6)),
-      ],
+        milestoneTitles: milestones.map((m) => m.title),
+        milestoneDescriptions: milestones.map((m) => m.description),
+        milestoneAmounts: milestones.map((m) => parseUnits(parseFloat(m.amount).toFixed(6), 6)),
+        milestoneDeadlines: milestones.map(() => defaultDeadline),
+      }],
     });
   };
 
@@ -135,7 +138,7 @@ export default function PostJobPage() {
           <Link href="/jobs" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8, color: "var(--text-secondary)", fontSize: 14 }}>
             <ArrowLeft size={16} /> Back to Jobs
           </Link>
-          <span className="font-display gradient-text" style={{ fontSize: 20, fontWeight: 800 }}>SkillSwap</span>
+          <span className="font-display gradient-text" style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em", background: "linear-gradient(135deg, #4F7FFF, #A064FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Workify</span>
         </div>
       </nav>
 

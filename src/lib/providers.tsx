@@ -13,7 +13,7 @@ export const wagmiConfig = createConfig({
   chains: [baseSepolia, base],
   connectors: [
     coinbaseWallet({
-      appName: "SkillSwap",
+      appName: "Workify",
       appLogoUrl: (process.env.NEXT_PUBLIC_URL || "") + "/logo.png",
       preference: "smartWalletOnly",
     }),
@@ -36,7 +36,7 @@ export function Providers({ children }: { children: ReactNode }) {
           config={{
             appearance: {
               mode: "dark",
-              name: "SkillSwap",
+              name: "Workify",
               logo: (process.env.NEXT_PUBLIC_URL || "") + "/logo.png",
             },
             paymaster: paymasterUrl || undefined,

@@ -321,7 +321,7 @@ export default function AdminPage() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <Link href="/" style={{ textDecoration: "none" }}>
-              <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>SkillSwap</span>
+              <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>Workify</span>
             </Link>
             <span style={{ color: "var(--text-muted)" }}>/</span>
             <span className="font-display" style={{ fontSize: 14, color: "var(--red)", fontWeight: 700 }}>Admin</span>

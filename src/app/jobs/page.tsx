@@ -113,7 +113,7 @@ export default function JobsPage() {
       <nav className="glass sticky top-0 z-50" style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <Link href="/" style={{ textDecoration: "none" }}>
-            <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>SkillSwap</span>
+            <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>Workify</span>
           </Link>
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             {isConnected ? (
@@ -167,7 +167,7 @@ export default function JobsPage() {
           <div style={{ textAlign: "center", padding: "80px 24px" }}>
             <Briefcase size={48} color="var(--text-muted)" style={{ margin: "0 auto 16px" }} />
             <h3 className="font-display" style={{ fontSize: 20, marginBottom: 8, color: "var(--text-secondary)" }}>No jobs yet</h3>
-            <p style={{ color: "var(--text-muted)", marginBottom: 24 }}>Be the first to post a job on SkillSwap</p>
+            <p style={{ color: "var(--text-muted)", marginBottom: 24 }}>Be the first to post a job on Workify</p>
             <Link href="/jobs/post">
               <button className="btn-primary">Post a Job</button>
             </Link>

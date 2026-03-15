@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import { Providers } from "@/lib/providers";
 import "./globals.css";
 
-const URL = process.env.NEXT_PUBLIC_URL || "https://skillswap.xyz";
+const URL = process.env.NEXT_PUBLIC_URL || "https://workify.vercel.app";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "SkillSwap — Decentralized Freelance on Base",
+    title: "Workify — Decentralized Freelance on Base",
     description: "Hire talent or find work with trustless escrow payments on Base blockchain.",
     other: {
       "fc:frame": JSON.stringify({
         version: "next",
         imageUrl: `${URL}/og-image.png`,
         button: {
-          title: "Open SkillSwap",
+          title: "Open Workify",
           action: {
             type: "launch_frame",
-            name: "SkillSwap",
+            name: "Workify",
             url: URL,
             splashImageUrl: `${URL}/splash.png`,
             splashBackgroundColor: "#0A0A0F",
@@ -27,11 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>

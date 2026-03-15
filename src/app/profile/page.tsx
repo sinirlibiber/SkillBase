@@ -52,7 +52,7 @@ export default function ProfilePage() {
       <nav className="glass sticky top-0 z-50" style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
           <Link href="/" style={{ textDecoration: "none" }}>
-            <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>SkillSwap</span>
+            <span className="font-display gradient-text" style={{ fontSize: 22, fontWeight: 800 }}>Workify</span>
           </Link>
           <Link href="/jobs"><button className="btn-secondary" style={{ padding: "8px 16px" }}>Browse Jobs</button></Link>
         </div>
