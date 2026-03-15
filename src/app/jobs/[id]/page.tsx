@@ -292,7 +292,7 @@ export default function JobDetailPage() {
           <div>
             {/* Payment Info */}
             <div className="card" style={{ padding: 24, marginBottom: 16 }}>
-              <div style={{ display: "flex", justify: "space-between", marginBottom: 20 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 20 }}>
                 <div>
                   <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 4 }}>Total Budget</div>
                   <div className="font-display" style={{ fontSize: 32, fontWeight: 800, color: "var(--green)" }}>
